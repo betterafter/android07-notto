@@ -11,7 +11,6 @@ import android.view.ViewGroup
 import androidx.core.view.doOnPreDraw
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.gojol.notto.common.AdapterViewType
 import com.gojol.notto.databinding.ItemLabelListBinding
 
 class LabelWrapperAdapter(private val adapter: LabelAdapter) :
@@ -26,7 +25,7 @@ class LabelWrapperAdapter(private val adapter: LabelAdapter) :
     }
 
     override fun getItemViewType(position: Int): Int {
-        return AdapterViewType.LABELWRAPPER.viewType
+        return VIEW_TYPE
     }
 
     override fun onBindViewHolder(holder: LabelWrapperViewHolder, position: Int) {
@@ -36,6 +35,10 @@ class LabelWrapperAdapter(private val adapter: LabelAdapter) :
     }
 
     override fun getItemCount(): Int = 1
+
+    companion object {
+        const val VIEW_TYPE = 2
+    }
 
     class LabelWrapperViewHolder(private val binding: ItemLabelListBinding) :
         RecyclerView.ViewHolder(binding.root) {
